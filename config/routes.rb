@@ -1,10 +1,16 @@
 Codereview::Application.routes.draw do
+
+
+  #get 'welcome/index'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
+  root to: 'crs#index'
+   
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase

@@ -1,0 +1,8 @@
+LOG:  database system was shut down at 2015-08-06 16:55:26 EDT
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  database "codereview" does not exist
+FATAL:  database "codereview" does not exist
+FATAL:  database "paperless-bi_development" does not exist
+FATAL:  database "paperless-bi_development" does not exist
+FATAL:  database "gifmonster" does not exist
