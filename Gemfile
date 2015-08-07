@@ -45,6 +45,7 @@ gem 'social-share-button'
 gem 'multi_json'
 gem 'representable'
 gem 'tracker_api'
+gem 'devise'
 
 # Added by amy to make button text responsive
 #gem 'fittextjs_rails'
