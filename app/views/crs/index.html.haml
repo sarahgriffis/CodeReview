@@ -1,39 +1,23 @@
-.container
-  %h1 CODE REVIEW
+%h1 CODE REVIEW
+.row
+  .col-lg-4 STORY/PR
+  .col-lg-1 PIVOTAL POINTS
+  .col-lg-2.state STATE
+  .col-lg-3.owner OWNER
 
-%table.table.table-striped
-  %thead
-    %tr
-      %th pull request
-      %th story id
-      %th story estimate
-  %tbody
-    - @saveable_stories.each do |story|
-      %tr
-        .col-md-1
-          %td #{story.pull_request}
-        .col-md-1
-          %td #{story.story_id}
-        .col-md-1
-          %td #{story.estimate}
-        .col-md-4
-          = simple_form_for(story, :html => { :class => 'form-horizontal' }) do |f|
-            = f.input :state, :collection => ["open", "in progress", "done"]
-            = f.association :owner, label_method: :email
-            = f.submit
+%hr
 
-  -# - @saveable_stories.each do |story|
-  -#   .row
-  -#     .col-md-1
-  -#       %p #{story.pull_request}
-  -#     .col-md-1
-  -#       %p #{story.story_id}
-  -#     .col-md-1
-  -#       %p #{story.estimate}
-  -#     .col-md-1
-  -#       - if story.owner.nil? == false
-  -#         #{story.owner.email}
-  -#     .col-md-4
-  -#       = simple_form_for(story, :html => { :class => 'form-horizontal' }) do |f|
-  -#         = f.input :state, :collection => ["open", "in progress", "done"]
-  -#         = f.submit
+- @saveable_stories.each do |story|
+  .row
+    .col-lg-4
+      = link_to image_tag("noun_22149_cc.png", size: "16"), "https://github.com/paperlesspost/paperless-ios/pull/#{story.pull_request}"
+      = link_to "#{story.name}", "https://www.pivotaltracker.com/story/show/#{story.story_id}"
+    .col-lg-1
+      %p #{story.estimate}
+    .col-lg-7
+      = simple_form_for(story, :html => { :class => 'form-horizontal' }, wrapper: :horizontal_form) do |f|
+        .col-lg-3
+          = f.input :state, label: false, :collection => ["open", "in progress", "done"], prompt: "none"
+        .col-lg-4
+          = f.association :owner, label: false, label_method: :email
+        = f.submit 'SAVE', :class => 'btn btn-primary'

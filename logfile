@@ -14,3 +14,6 @@ ERROR:  syntax error at or near "*" at character 8
 STATEMENT:  delete * from saveable_stories;
 ERROR:  syntax error at or near "*" at character 8
 STATEMENT:  delete * from saveable_stories;
+ERROR:  syntax error at or near "rails" at character 1
+STATEMENT:  rails s
+	;

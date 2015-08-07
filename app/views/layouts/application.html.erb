@@ -16,9 +16,10 @@
 </head>
 <body>
 
+<div class="container">
 <%= link_to 'Sign Out', destroy_user_session_path(current_user), :method => :delete %>
-
 <%= yield %>
+</div>
 
 </body>
 </html>
