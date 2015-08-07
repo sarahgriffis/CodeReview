@@ -6,3 +6,11 @@ FATAL:  database "codereview" does not exist
 FATAL:  database "paperless-bi_development" does not exist
 FATAL:  database "paperless-bi_development" does not exist
 FATAL:  database "gifmonster" does not exist
+ERROR:  null value in column "created_at" violates not-null constraint
+DETAIL:  Failing row contains (1, sgriffis@paperlesspost.com, , null, null, null, 0, null, null, null, null, null, null).
+STATEMENT:  insert into users (email) values ('sgriffis@paperlesspost.com')
+	;
+ERROR:  syntax error at or near "*" at character 8
+STATEMENT:  delete * from saveable_stories;
+ERROR:  syntax error at or near "*" at character 8
+STATEMENT:  delete * from saveable_stories;

@@ -1,6 +1,10 @@
 %h1 CODE REVIEW
 
-- @code_review_stories.each do |story|
-  %p #{story.name}
-  %p #{story.url}
+- @saveable_stories.each do |story|
+  .col-1-md
+    %p #{story.pr}
+  .col-1-md
+    %p #{story.story_id}
+  .col-1-md
+    %p #{story.estimate}
 
