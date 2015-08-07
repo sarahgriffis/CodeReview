@@ -1,17 +1,39 @@
 .container
   %h1 CODE REVIEW
 
-  - @saveable_stories.each do |story|
-    .row
-      .col-md-1
-        %p #{story.pull_request}
-      .col-md-1
-        %p #{story.story_id}
-      .col-md-1
-        %p #{story.estimate}
-      .col-md-4
-        = simple_form_for(story, :html => { :class => 'form-horizontal' }) do |f|
-          = f.input :state, :collection => ["open", "in progress", "done"]
-          = f.association :owner, label_method: :email
-          = f.submit
+%table.table.table-striped
+  %thead
+    %tr
+      %th pull request
+      %th story id
+      %th story estimate
+  %tbody
+    - @saveable_stories.each do |story|
+      %tr
+        .col-md-1
+          %td #{story.pull_request}
+        .col-md-1
+          %td #{story.story_id}
+        .col-md-1
+          %td #{story.estimate}
+        .col-md-4
+          = simple_form_for(story, :html => { :class => 'form-horizontal' }) do |f|
+            = f.input :state, :collection => ["open", "in progress", "done"]
+            = f.association :owner, label_method: :email
+            = f.submit
 
+  -# - @saveable_stories.each do |story|
+  -#   .row
+  -#     .col-md-1
+  -#       %p #{story.pull_request}
+  -#     .col-md-1
+  -#       %p #{story.story_id}
+  -#     .col-md-1
+  -#       %p #{story.estimate}
+  -#     .col-md-1
+  -#       - if story.owner.nil? == false
+  -#         #{story.owner.email}
+  -#     .col-md-4
+  -#       = simple_form_for(story, :html => { :class => 'form-horizontal' }) do |f|
+  -#         = f.input :state, :collection => ["open", "in progress", "done"]
+  -#         = f.submit
