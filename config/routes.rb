@@ -1,7 +1,19 @@
 Codereview::Application.routes.draw do
 
+  resources :saveable_stories
 
   devise_for :users
+
+devise_scope :user do
+  authenticated :user do
+    root 'crs#index', as: :authenticated_root
+  end
+
+  unauthenticated do
+    root 'devise/sessions#new', as: :unauthenticated_root
+  end
+end
+
   #get 'welcome/index'
 
   # The priority is based upon order of creation:
@@ -10,8 +22,8 @@ Codereview::Application.routes.draw do
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
-  root to: 'crs#index'
-   
+  #root new_user_session_path
+  #get 'crs#index'
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase

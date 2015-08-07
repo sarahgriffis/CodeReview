@@ -1,0 +1,2 @@
+module SaveableStoryHelper
+end

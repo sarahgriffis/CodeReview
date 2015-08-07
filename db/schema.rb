@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150807152642) do
+ActiveRecord::Schema.define(version: 20150807154906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20150807152642) do
     t.integer  "assigner"
     t.datetime "date_opened"
     t.datetime "date_closed"
+    t.text     "name"
   end
 
   create_table "stories", force: :cascade do |t|

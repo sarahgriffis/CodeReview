@@ -1,4 +1,7 @@
 class CrsController < ApplicationController
+  before_action :authenticate_user!
+
+
   def index
 
     client = TrackerApi::Client.new(token: '2b77bdfc1f1a5c6061ba1bd2ae6173c7')
@@ -16,13 +19,12 @@ class CrsController < ApplicationController
         temp_story.story_id = story.id
         temp_story.pull_request = story.pull_request
         temp_story.estimate = story.estimate
-        
+        temp_story.name = story.name
         temp_story.save
       end
 
       temp_story
     end.compact
-    
     #1332230 person_id is stampy
     #https://github.com/paperlesspost/paperless-ios/pull
 
