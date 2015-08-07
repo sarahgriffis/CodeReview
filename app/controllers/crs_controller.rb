@@ -20,6 +20,7 @@ class CrsController < ApplicationController
         temp_story.pull_request = story.pull_request
         temp_story.estimate = story.estimate
         temp_story.name = story.name
+        temp_story.date_opened = story.created_at
         temp_story.save
       end
 
