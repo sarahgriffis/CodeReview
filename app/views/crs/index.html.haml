@@ -1,10 +1,17 @@
 %h1 CODE REVIEW
 
-- @saveable_stories.each do |story|
-  .col-1-md
-    %p #{story.pr}
-  .col-1-md
-    %p #{story.story_id}
-  .col-1-md
-    %p #{story.estimate}
-
+%table.table.table-striped
+  %thead
+    %tr
+      %th pull request
+      %th story id
+      %th story estimate
+  %tbody
+    - @saveable_stories.each do |story|
+      %tr
+        .col-md-1
+          %td #{story.pull_request}
+        .col-md-1
+          %td #{story.story_id}
+        .col-md-1
+          %td #{story.estimate}
